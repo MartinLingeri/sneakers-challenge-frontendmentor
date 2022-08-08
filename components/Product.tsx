@@ -133,7 +133,7 @@ export default function Product() {
           <Image
             src={products[1].images[selectedImageIndex]}
             w="100vw"
-            marginInlineStart={0}
+            marginInlineStart="0 !important"
           />
           <IconButton
             aria-label="next"

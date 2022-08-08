@@ -2,14 +2,14 @@ interface Product{
   id: number;
   title: string;
   description: string;
-  price: number;
-  discount: number;
-  finalPrice: number;
+  price: string;
+  discount: string;
+  finalPrice: string;
   images: string[];
   thumbnails: string[];
 }
 
-const products = {
+const products: {[id:number]:Product} = {
   1: {
     id: 1,
     title: "Fall Limited Edition Sneakers",

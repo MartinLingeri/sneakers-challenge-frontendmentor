@@ -98,7 +98,7 @@ export default function Navbar() {
                   content: "''",
                   display: "block",
                   position: "absolute",
-                  insetY: "62px",
+                  insetY: "54px",
                   width: "100%",
                   height: "6px",
                   backgroundColor: "hsl(26, 100%, 55%)",
@@ -160,7 +160,7 @@ export default function Navbar() {
               py={1}
             >
               {Object.keys(cart).reduce(
-                (acc, key) => acc + cart[key].quantity,
+                (acc, key) => acc + cart[parseInt(key)].quantity,
                 0
               )}
             </Box>
@@ -191,7 +191,7 @@ export default function Navbar() {
                 {Object.keys(cart).map((key, index) => (
                   <Stack key={index} direction="row">
                     <Image
-                      src={products[key].thumbnails[0]}
+                      src={products[parseInt(key)].thumbnails[0]}
                       w={12}
                       h={12}
                       borderRadius="lg"
@@ -204,7 +204,7 @@ export default function Navbar() {
                         fontWeight="400"
                         fontFamily="Kumbh Sans"
                       >
-                        {products[key].title}
+                        {products[parseInt(key)].title}
                       </Heading>
                       <Stack
                         direction="row"
@@ -218,7 +218,7 @@ export default function Navbar() {
                           fontWeight="400"
                           fontFamily="Kumbh Sans"
                         >
-                          {products[key].finalPrice} x {cart[key].quantity}{" "}
+                          {products[parseInt(key)].finalPrice} x {cart[parseInt(key)].quantity}{" "}
                         </Heading>
                         <Heading
                           as="h2"
@@ -229,8 +229,8 @@ export default function Navbar() {
                         >
                           $
                           {(
-                            Number(products[key].finalPrice.slice(1)) *
-                            cart[key].quantity
+                            Number(products[parseInt(key)].finalPrice.slice(1)) *
+                            cart[parseInt(key)].quantity
                           ).toFixed(2)}
                         </Heading>
                       </Stack>
@@ -243,7 +243,7 @@ export default function Navbar() {
                       display="flex"
                       alignItems="center"
                       justifyContent="center"
-                      onClick={() => removeProduct(Number(key))}
+                      onClick={() => removeProduct(parseInt(key))}
                     />
                   </Stack>
                 ))}
